@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<h1>전제 부서 조회</h1>
+	<h1>전체 부서 조회</h1>
 
 	
 
@@ -24,6 +24,8 @@
 				<th>부서 코드 (DEPT_ID)</th>
 				<th>부서 명   (DEPT_TITLE)</th>
 				<th>지역 코드 (LOCATION_ID)</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		
@@ -40,6 +42,10 @@
 					<td>${dept.deptTitle}</td>
 					
 					<td>${dept.locationId}</td>
+
+					<th><button type = "button" class="update-btn">수정</button></th>
+
+					<th><button type = "button" class="delete-btn">삭제</button></th>
 				</tr>
 			
 			</c:forEach>
@@ -47,6 +53,7 @@
 	
 	
 	</table>
+
 
 	<%-- session scpe로 전달받은 주제가 있다면 alert() 출력하기 --%>
 
@@ -66,6 +73,7 @@
 
 	</c:if>
 
+	<script src="/resources/js/selectAll.js"></script>
 
 </body>
 </html>
