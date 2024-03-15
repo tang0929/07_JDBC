@@ -34,8 +34,12 @@ public interface DepartmentService {
 	int multiInsert(List<Department> deptList) throws DepartmentInsertException;
 
 
+	/** 부서 삭제
+	 * @param deptId
+	 * @return result
+	 * @throws SQLException
+	 */
 	int deleteDepartment(String deptId) throws SQLException;
-
 
 
 	/** 부서 1행 조회
@@ -46,14 +50,20 @@ public interface DepartmentService {
 	Department selectOne(String deptId) throws SQLException;
 
 
-
-
-
-	Department update(String deptId) throws SQLException;
-
-
+	/** 부서 수정
+	 * @param dept
+	 * @return result
+	 * @throws SQLException
+	 */
 	int updateDepartment(Department dept) throws SQLException;
-	
+
+
+	/** 부서명 검색
+	 * @param keyword
+	 * @return deptList
+	 * @throws SQLException
+	 */
+	List<Department> searchDepartment(String keyword) throws SQLException;
 	
 	
 	

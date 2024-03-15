@@ -74,7 +74,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 			rollback(conn);
 			
 			/* 제약조건 위배로 인해서 정상 수행 되지 않음을 표현하기 위해
-			 * 강제로 예외 발생 - 사용자 정의 예외 이용 */
+			 * 강제로 예외 발생!!!! - 사용자 정의 예외 이용 */
 		
 			throw new DepartmentInsertException();
 			
@@ -122,7 +122,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 			// == 삽입 실패한 경우가 존재 -> rollback
 			
 			if(result == deptList.size())	commit(conn);
-			else							rollback(conn);
+			else													rollback(conn);
 			
 			
 		}catch (SQLException e) {
@@ -158,7 +158,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 		int result = dao.deleteDepartment(conn, deptId);
 		
 		if(result > 0)	commit(conn);
-		else			rollback(conn);
+		else						rollback(conn);
 		
 		close(conn);
 		
@@ -166,50 +166,56 @@ public class DepartmentServiceImpl implements DepartmentService{
 	}
 	
 	
-	
-	
-	
+	// 부서 1행 조회
 	@Override
 	public Department selectOne(String deptId) throws SQLException {
+		
 		// 1. 커넥션 얻어오기
 		Connection conn = getConnection();
 		
-		
-		// 2. DAO 메서드 호출 후 결과 반환받기
-		Department dept = dao.selectOne(conn,deptId);
-		
-		
+		// 2. DAO 메서드 호출 후 결과 반환 받기
+		Department dept = dao.selectOne(conn, deptId);
 		
 		// 3. 커넥션 반환
 		close(conn);
-		
 		
 		// 4. 결과 반환
 		return dept;
 	}
 	
 	
-	
-	
-	
+	// 부서 수정
 	@Override
-	public int updateDepartment(Department dept) throws SQLException{
-		
+	public int updateDepartment(Department dept) throws SQLException {
+	
+		// 커넥션 얻어오기
 		Connection conn = getConnection();
-		int result = dao.updateDepartment(conn,dept);
 		
-		if(result > 0) commit(conn);
-		else rollback(conn);
+		int result = dao.updateDepartment(conn, dept);
+		
+		if(result > 0)	commit(conn);
+		else						rollback(conn);
 		
 		close(conn);
+		
 		return result;
 	}
-
+	
+	// 부서명 검색
+	@Override
+	public List<Department> searchDepartment(String keyword) throws SQLException {
+	
+		// 1. 커넥션 생성
+		Connection conn = getConnection();
+		
+		// 2. DAO 메서드 호출 후 결과 반환 받기
+		List<Department> deptList = dao.searchDepartment(conn, keyword);
+		
+		close(conn);
+		return deptList;
+	}
 	
 	
-
-
-
 	
 	
 	
