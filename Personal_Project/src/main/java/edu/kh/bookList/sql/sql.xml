@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 도서 목록 조회 -->
+<entry key = "selectAll">
+SELECT BOOK_NO, BOOK_TITLE,WRITER, REVIEW_WRITER, RATE, TO_CHAR(REG_DATE,'YYYY-MM-DD HH24:MI:SS') REG_DATE
+FROM TB_BOOK ORDER BY BOOK_NO ASC
+</entry>
+
+
+<!-- 도서 추가 -->
+<entry key = "addBook">
+INSERT INTO TB_BOOK VALUES (SEQ_BOOK_NO.NEXTVAL,?,?,?,?,?,DEFAULT)
+</entry>
+
+
+<!-- 도서 상세 조회 -->
+<entry key = "selectBook">
+SELECT BOOK_NO, BOOK_TITLE,REVIEW_CONTENT, WRITER ,REVIEW_WRITER, RATE, TO_CHAR(REG_DATE,'YYYY-MM-DD HH24:MI:SS') REG_DATE 
+FROM TB_BOOK
+WHERE BOOK_NO = ?
+</entry>
+
+
+<!-- 도서 삭제 -->
+<entry key = "deleteBook">
+DELETE FROM TB_BOOK
+WHERE BOOK_NO = ?
+</entry>
+
+
+
+</properties>
+
+
+
+
+
