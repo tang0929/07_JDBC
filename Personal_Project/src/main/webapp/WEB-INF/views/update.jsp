@@ -21,12 +21,12 @@
         <div>
         <textarea name="reviewContent" cols="50" rows = "5" placeholder="리뷰 내용 수정란(10자 이상)"></textarea>
         </div> 
-        <button id="update2">수정하기</button>
+        <button>수정하기</button>
       
 
 
     </form>
-
+<script src="/resources/js/detail.js"></script>
    
 <c:if test="${not empty message}" >
     <script>
@@ -35,6 +35,6 @@
     
     <c:remove var="message" />
   </c:if>
-   <script src="/resources/js/detail.js"></script>
+   
 </body>
 </html>

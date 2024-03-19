@@ -48,7 +48,7 @@ if(updateBtn != null){
 
 
 
-const updateForm = document.querySelector("updateForm")
+const updateForm = document.querySelector("#updateForm")
 if(updateForm != null){
     updateForm.addEventListener("submit",e => {
         if(document.querySelector("#rate").value.trim().length == 0) {
@@ -57,9 +57,9 @@ if(updateForm != null){
            
             e.preventDefault();
         }
-        if(document.querySelector("#reviewContent").value.trim().length == 0) {
+        if(document.querySelector("#reviewContent").value.trim().length < 10) {
 
-            alert("평점을 입력하지 않았습니다.");
+            alert("수정할 내용을 10자 이상 입력하지 않았습니다.");
            
             e.preventDefault();
         }
