@@ -7,30 +7,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookList</title>
+    <style>
+ 
+    </style>
+    
 </head>
 <body>
     <h1>도서 리뷰 게시판</h1>
     <hr>
-    <form action="/book/add" method="POST">
+    <form action="/book/add" method="POST" id="addForm">
 
     <h2>도서 리뷰 작성</h2>
         <div>
-        도서 이름 : <input type="text" name = "bookTitle" size = "50">
+        도서 이름 : <input type="text" name = "bookTitle" id = "bookTitle" size = "50">
         </div>
         <div>
-        도서 작가 : <input type="text" name = "writer" size = "width:80px;">
+        도서 작가 : <input type="text" name = "writer" id = "writer" size = "width:80px;">
         </div>
         <div>
-        작성자 : <input type="text" name = "reviewWriter" style="width:80px;">
+        작성자 : <input type="text" name = "reviewWriter" id = "reviewWriter" style="width:80px;">
         </div>
         <div>
-        평점 : <input type="number" name = "rate" style="width:35px" min="1" max="10"><br>
-        (1~10)
+        평점(1~10) : <input type="number" name = "rate" id = "rate" style="width:35px" min="1" max="10"><br>
         </div>
         <div>
-        <textarea name="reviewContent" cols="50" rows = "5" placeholder="리뷰 내용 작성란"></textarea>
+        <textarea name="reviewContent" cols="50" rows = "5" id = "reviewContent" placeholder="리뷰 내용 작성란(10자 이상)"></textarea>
         </div> 
-        <button>제출하기</button>
+        <button id="submitBtn">제출하기</button>
 
 
     </form>
@@ -69,5 +72,7 @@
     </c:if>
 
     </table>
+
+    <script src="/resources/js/detail.js"></script>
 </body>
 </html>

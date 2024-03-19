@@ -32,7 +32,7 @@ public class DeleteBookServlet extends HttpServlet{
 				path = "/";
 				message = "해당 도서 정보와 리뷰가 삭제되었습니다.";
 			} else {
-				path = "/todo/detail?bookNo=" + bookNo;
+				path = "/book/detail?bookNo=" + bookNo;
 				message = "삭제실패";
 				
 			}
@@ -51,4 +51,3 @@ public class DeleteBookServlet extends HttpServlet{
 		
 		
 	}
-

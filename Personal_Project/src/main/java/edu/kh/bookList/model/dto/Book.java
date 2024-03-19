@@ -78,6 +78,14 @@ public class Book {
 		return regDate;
 	}
 
+	public Book(int bookNo, int rate, String reviewContent) {
+		super();
+		this.bookNo = bookNo;
+		this.rate = rate;
+		this.reviewContent = reviewContent;
+		
+	}
+
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}

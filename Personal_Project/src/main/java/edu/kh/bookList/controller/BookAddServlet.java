@@ -37,6 +37,7 @@ public class BookAddServlet extends HttpServlet{
 		
 		if(result > 0) message = "도서 추가 성공";
 		else message = "도서 추가 실패";
+
 		
 		
 		HttpSession session = req.getSession();

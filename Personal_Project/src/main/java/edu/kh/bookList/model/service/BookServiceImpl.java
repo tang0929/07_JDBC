@@ -90,4 +90,22 @@ public class BookServiceImpl implements BookService {
 		return result;
 	}
 
+	
+	
+	// 도서 수정
+	@Override
+	public int updateBook(Book book) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.updateBook(conn, book);
+		
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);	
+		
+		return result;
+		
+	}
 }

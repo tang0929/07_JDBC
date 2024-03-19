@@ -29,6 +29,13 @@ DELETE FROM TB_BOOK
 WHERE BOOK_NO = ?
 </entry>
 
+<!-- 도서 수정 -->
+<entry key = "updateBook">
+UPDATE TB_BOOK SET
+RATE = ?, REVIEW_CONTENT = ? 
+WHERE BOOK_NO = ?
+</entry>
+
 
 
 </properties>

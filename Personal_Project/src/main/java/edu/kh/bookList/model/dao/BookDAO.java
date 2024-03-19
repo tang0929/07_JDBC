@@ -17,6 +17,8 @@ public interface BookDAO {
 
 	int deleteBook(Connection conn, int bookNo) throws Exception;
 
+	int updateBook(Connection conn, Book book) throws Exception;
+
 	
 
 

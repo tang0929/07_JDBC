@@ -166,6 +166,32 @@ public class BookDAOImpl implements BookDAO{
 		}finally {
 			close(pstmt);
 		}
-		return 0;
+		return result;
+	}
+	
+	
+	
+	
+	// 도서 수정
+	
+	@Override
+	public int updateBook(Connection conn, Book book) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("updateBook");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, book.getRate());
+			pstmt.setString(2, book.getReviewContent());
+			pstmt.setInt(3, book.getBookNo());
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+			
+		}
+		return result;
 	}
 }

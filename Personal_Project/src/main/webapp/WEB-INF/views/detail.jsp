@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -59,9 +60,18 @@
     </table>
 
     <button id = "goToHome">홈으로</button>
-    <button id = "updateBtn">수정하기</button>
-    <button id = "deleteBtn">삭제하기</button>
+    <button id = "updateBtn" data-book-no="${book.bookNo}">수정하기</button>
+    <button id = "deleteBtn" data-book-no="${book.bookNo}">삭제하기</button>
 
     <script src="/resources/js/detail.js"></script>
+
+    <c:if test="${not empty message}" >
+        <script>
+             alert("${message}");
+        </script>
+
+        <c:remove var="message" />
+    </c:if>
+
 </body>
 </html>

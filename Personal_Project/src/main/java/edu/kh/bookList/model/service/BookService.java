@@ -18,6 +18,8 @@ public interface BookService {
 	Book selectBook(int bookNo) throws Exception;
 
 	int deleteBook(int bookNo) throws Exception;
+
+	int updateBook(Book book) throws Exception;
 	
 
 	
